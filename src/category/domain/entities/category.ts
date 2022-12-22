@@ -1,4 +1,6 @@
-class Category {}
+export default class Category {
+  constructor(public name: string) {}
+}
 
 // TDD - Kent Beck
 
