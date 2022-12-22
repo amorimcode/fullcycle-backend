@@ -13,12 +13,14 @@ describe("Category test", () => {
     };
 
     //  Act
+    const createdAt = new Date();
     const category = new Category(props);
 
-    //  Assert
-    expect(category.name).toBe("Movie");
-    expect(category.description).toBe("Movie description");
-    expect(category.isActive).toBe(true);
-    expect(category.createdAt).toBe(props.createdAt);
+    expect(category.props).toMatchObject(props);
+
+    //  Assert    // expect(category.name).toBe("Movie");
+    // expect(category.description).toBe("Movie description");
+    // expect(category.isActive).toBe(true);
+    // expect(category.createdAt).toBe(createdAt);
   });
 });
