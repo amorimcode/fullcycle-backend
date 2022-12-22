@@ -16,7 +16,7 @@ describe("Category test", () => {
     const createdAt = new Date();
     const category = new Category(props);
 
-    expect(category.props).toMatchObject(props);
+    expect(category.props).toStrictEqual(props);
 
     //  Assert    // expect(category.name).toBe("Movie");
     // expect(category.description).toBe("Movie description");
