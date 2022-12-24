@@ -1,5 +1,6 @@
 import Category from "./category";
 import { omit } from "lodash";
+import { validate as uuidValidate } from "uuid";
 
 describe("Category test", () => {
   test("constructor of category", () => {
@@ -39,25 +40,21 @@ describe("Category test", () => {
       isActive: false,
     });
 
-    expect(category.props).toMatchObject({
-      name: "Movie",
-      description: "some description",
-    });
-
     category = new Category({
       name: "Movie",
       isActive: true,
-    });
-
-    expect(category.props).toMatchObject({
-      name: "Movie",
-      isActive: false,
     });
 
     //  Assert    // expect(category.name).toBe("Movie");
     // expect(category.description).toBe("Movie description");
     // expect(category.isActive).toBe(true);
     // expect(category.createdAt).toBe(createdAt);
+  });
+
+  test("if field", () => {
+    const category = new Category({ name: "Movie" });
+    expect(category.id).not.toBeNull();
+    expect(uuidValidate(category.id)).toBeTruthy();
   });
 
   test("getter of name field", () => {
